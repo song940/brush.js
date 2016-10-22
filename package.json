@@ -1,0 +1,19 @@
+{
+  "name": "brush.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/song940/brush.js.git"
+  },
+  "author": "lsong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/song940/brush.js/issues"
+  },
+  "homepage": "https://github.com/song940/brush.js#readme",
+  "keywords": [
+    "canvas"
+  ],
+  "description": "A canvas library focused on mobile applications."
+}
