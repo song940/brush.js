@@ -9,5 +9,11 @@ var el = document.getElementById('#canvas');
 
 var brush = new Brush(el);
 
-brush.draw();
+brush
+.background()
+.arc()
+.rect()
+.draw()
+.save()
+
 ```
