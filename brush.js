@@ -1,11 +1,13 @@
 
 /**
- * [Brush description]
+ * [Paint description]
  * @param {[type]} ctx [description]
  */
-function Brush(ctx){
-  if(!(this instanceof Brush))
-    return new Brush(ctx);
+function Paint(ctx){
+  if(!(this instanceof Paint))
+    return new Paint(ctx);
+  if(typeof ctx == 'string')
+    ctx = document.querySelector(ctx);
   if(ctx instanceof HTMLElement)
     ctx = canvas.getContext("2d");
 
@@ -16,7 +18,7 @@ function Brush(ctx){
   return this;
 };
 
-Brush.prototype.text = function(text, x, y, font, color){
+Paint.prototype.text = function(text, x, y, font, color){
   x = x || 0;
   y = y || 0;
   font = font || '48px serif';
@@ -39,7 +41,7 @@ Brush.prototype.text = function(text, x, y, font, color){
  * @param  {[type]} sHeight [description]
  * @return {[type]}         [description]
  */
-Brush.prototype.image = function(src, dx, dy, dWidth, dHeight, sx, sy, sWidth, sHeight){
+Paint.prototype.image = function(src, dx, dy, dWidth, dHeight, sx, sy, sWidth, sHeight){
   dx = dx || 0;
   dy = dy || 0;
   dWidth  = dWidth  || this.width;
@@ -55,7 +57,7 @@ Brush.prototype.image = function(src, dx, dy, dWidth, dHeight, sx, sy, sWidth, s
  * @param  {[type]} deg [description]
  * @return {[type]}     [description]
  */
-Brush.prototype.rotate = function(deg){
+Paint.prototype.rotate = function(deg){
   this.ctx.rotate(deg * Math.PI / 180);
   return this;
 };
@@ -67,7 +69,7 @@ Brush.prototype.rotate = function(deg){
  * @param  {[type]} y1 [description]
  * @return {[type]}    [description]
  */
-Brush.prototype.line = function(x, y, x1, y1){
+Paint.prototype.line = function(x, y, x1, y1){
   x = x || 0;
   y = y || 0;
   x1 = x1 || 0;
@@ -87,7 +89,7 @@ Brush.prototype.line = function(x, y, x1, y1){
  * @param  {[type]} color  [description]
  * @return {[type]}        [description]
  */
-Brush.prototype.rect = function(x, y, width, height){
+Paint.prototype.rect = function(x, y, width, height){
   x = x || 0;
   y = y || 0;
   width  = width  || this.width;
@@ -106,7 +108,7 @@ Brush.prototype.rect = function(x, y, width, height){
  * @param  {[type]} anticlockwise [description]
  * @return {[type]}               [description]
  */
-Brush.prototype.arc = function(x, y, radius, startAngle, endAngle, anticlockwise){
+Paint.prototype.arc = function(x, y, radius, startAngle, endAngle, anticlockwise){
   x = x || 0;
   y = y || 0;
   radius = radius || 50;
@@ -122,7 +124,7 @@ Brush.prototype.arc = function(x, y, radius, startAngle, endAngle, anticlockwise
  * @param  {[type]} color [description]
  * @return {[type]}       [description]
  */
-Brush.prototype.background = function(color){    
+Paint.prototype.background = function(color){    
   return this.fill(null, null, null, null, color);
 };
 /**
@@ -134,7 +136,7 @@ Brush.prototype.background = function(color){
  * @param  {[type]} height [description]
  * @return {[type]}        [description]
  */
-Brush.prototype.fill = function(x, y, width, height, color){
+Paint.prototype.fill = function(x, y, width, height, color){
   this.ctx.fillStyle = color || 'white';
   this.ctx.fillRect(x, y, width, height);
   return this.rect(x, y, width, height, color);
@@ -147,7 +149,7 @@ Brush.prototype.fill = function(x, y, width, height, color){
  * @param  {[type]} height [description]
  * @return {[type]}        [description]
  */
-Brush.prototype.clear = function(x, y, width, height){
+Paint.prototype.clear = function(x, y, width, height){
   x = x || 0;
   y = y || 0;
   width  = width  || this.width;

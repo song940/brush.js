@@ -1,17 +1,17 @@
 {
-  "name": "brush.js",
+  "name": "paint.js",
   "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/song940/brush.js.git"
+    "url": "git+https://github.com/song940/paint.js.git"
   },
   "author": "lsong",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/song940/brush.js/issues"
+    "url": "https://github.com/song940/paint.js/issues"
   },
-  "homepage": "https://github.com/song940/brush.js#readme",
+  "homepage": "https://github.com/song940/paint.js#readme",
   "keywords": [
     "canvas"
   ],
