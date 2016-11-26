@@ -1,24 +1,17 @@
 <html>
 <head>
-  <title>Brush.js</title>
+  <title>Paint.js</title>
   <script src="../paint.js"></script>
-  <style>
-    #canvas{
-      width: 500px;
-      border: 3px solid red;
-    }
-  </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" width="500" height="500"></canvas>
 </body>
 <script>
-  paint('#canvas')
+  Paint('#canvas')
   .background('#f70')
-  .text('test', 50, 50)
+  .text('Paint.js', 50, 50)
   .arc(50, 50)
   .rect(30, 30, 100, 100)
   .line(50, 50, 100, 100)
-  .image('https://mdn.mozillademos.org/files/5397/rhino.jpg')
 </script>
 </html>

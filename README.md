@@ -5,7 +5,7 @@
 ### Example
 
 ```js
-  paint('#canvas')
+  Paint('#canvas')
   .background('#f70')
   .text('test', 50, 50)
   .arc(50, 50)

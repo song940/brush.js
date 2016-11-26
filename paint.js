@@ -21,8 +21,7 @@ function Paint(ctx){
 Paint.prototype.text = function(text, x, y, font, color){
   x = x || 0;
   y = y || 0;
-  font = font || '48px serif';
-  this.ctx.font = font;
+  this.ctx.font = font || '48px serif';
   this.ctx.fillStyle = color || 'black';
   this.ctx.fillText(text, x, y);
   return this;
@@ -74,7 +73,6 @@ Paint.prototype.line = function(x, y, x1, y1){
   y = y || 0;
   x1 = x1 || 0;
   y1 = y1 || 0;
-  this.ctx.beginPath();
   this.ctx.moveTo(x, y);
   this.ctx.lineTo(x1, y1);
   this.ctx.stroke();
@@ -114,7 +112,6 @@ Paint.prototype.arc = function(x, y, radius, startAngle, endAngle, anticlockwise
   radius = radius || 50;
   startAngle = startAngle || 0;
   endAngle   = endAngle   || Math.PI * 2;
-  this.ctx.beginPath();
   this.ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
   this.ctx.stroke();
   return this;
@@ -137,9 +134,13 @@ Paint.prototype.background = function(color){
  * @return {[type]}        [description]
  */
 Paint.prototype.fill = function(x, y, width, height, color){
+  x = x || 0;
+  y = y || 0;
+  width  = width  || this.width;
+  height = height || this.height;
   this.ctx.fillStyle = color || 'white';
   this.ctx.fillRect(x, y, width, height);
-  return this.rect(x, y, width, height, color);
+  return this;
 };
 /**
  * [clear description]
