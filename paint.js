@@ -9,7 +9,7 @@ function Paint(ctx){
   if(typeof ctx == 'string')
     ctx = document.querySelector(ctx);
   if(ctx instanceof HTMLElement)
-    ctx = canvas.getContext("2d");
+    ctx = ctx.getContext("2d");
 
   this.ctx = ctx;
   this.canvas = this.ctx.canvas;
